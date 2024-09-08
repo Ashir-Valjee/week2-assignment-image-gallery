@@ -6,14 +6,35 @@
     <link rel="stylesheet" href="./style.css" />
     <script src="./app.js" defer></script>
     <title>Image Gallery</title>
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon" />
   </head>
   <body>
-    <h1>hello</h1>
-    <div id="thumbnail-container"></div>
-    <div id="main-container"></div>
+    <header>
+      <div id="thumbnail-container"></div>
+      <button
+        id="thumbnail-visibility-button"
+        aria-label="Close or Open the image thumbnail gallery"
+        class="buttons"
+      >
+        X
+      </button>
+    </header>
+    <section id="main-container"></section>
+    <div id="left-container">
+      <button
+        id="previous-image"
+        aria-label="Show the previous image"
+        class="buttons"
+      >
+        &#xab;
+      </button>
+    </div>
+    <div id="right-container">
+      <button id="next-image" aria-label="Show the next image" class="buttons">
+        &#xbb;
+      </button>
+    </div>
 
-    <!-- stretch goal, two buttons to navigate images -->
-    <!-- <button></button>
-    <button></button> -->
+    <div id="aria-announcer" aria-live="polite" class="hidden"></div>
   </body>
 </html>

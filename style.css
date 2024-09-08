@@ -1,8 +1,168 @@
 /* Import in your CSS */
-/* @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"); */
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 
-* {
-  background-color: peru;
+body {
+  display: grid;
+  grid-template-columns: 2fr 30fr 2fr;
+  grid-template-rows: 2fr 8fr 1fr;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: silver;
 }
 
-/* make sure you have media queries */
+header {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3px;
+}
+
+#thumbnail-container {
+  height: 60px;
+  width: 90%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.459);
+  margin-bottom: 2px;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.thumbnail-image {
+  width: 70px;
+  height: 50px;
+  padding: 2px;
+  cursor: pointer;
+}
+.buttons {
+  position: relative;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  height: 0.7%;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-style: none;
+  border-radius: 50%;
+  border-color: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.buttons:hover {
+  color: white;
+  font-size: 2rem;
+}
+
+#main-container {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-color: black;
+  border-style: solid;
+  border-width: 15px;
+  z-index: 1000;
+  max-height: 700px;
+}
+
+.current-large-image {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+#left-container {
+  grid-column-start: 1;
+
+  grid-row-start: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+#right-container {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+@media (max-width: 600px) {
+  #thumbnail-container,
+  #thumbnail-visibility-button,
+  #left-container,
+  #right-container,
+  header,
+  #next-image,
+  #previous-image {
+    display: none;
+  }
+
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: black;
+    grid-template-rows: 2fr 15fr 1fr;
+  }
+  #thumbnail-container {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  .current-large-image {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-height: 500px) {
+  #thumbnail-container,
+  #thumbnail-visibility-button,
+  #left-container,
+  #right-container,
+  header,
+  #next-image,
+  #previous-image {
+    display: none;
+  }
+
+  body {
+    display: fixed;
+  }
+
+  .current-large-image {
+    object-fit: contain;
+    object-position: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  #main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+  body {
+    background-color: black;
+  }
+}
